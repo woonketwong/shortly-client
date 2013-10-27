@@ -1,0 +1,21 @@
+<div ng-controller='shortenUrlCtrl'>
+  <input type="text" ng-model="yourName" placeholder="Enter a name here">
+  <h1>Hello, {{ yourName }}!</h1>
+
+
+      <table class="sort-option">
+        <tr>
+          <th><a href="" ng-click="predicate = 'visits'; reverse=!reverse">Order by views</a></th>
+          <th><a href="" ng-click="predicate = 'updated_at'; reverse=!reverse">Order by created at</a></th>
+        </tr>
+      </table>
+
+    <pre ng-repeat="dataObj in dataBody | orderBy:predicate:reverse">
+      Title: {{dataObj.title}}  
+      Visits: {{dataObj.visits}}  
+      URL: {{dataObj.url}}
+      Shorten URL: <a href="{{dataObj.base_url + '/' + dataObj.code}}">{{dataObj.base_url + '/' + dataObj.code}}</a>     
+      {{dataObj}} 
+    </pre>
+
+</div>
